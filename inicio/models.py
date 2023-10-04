@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Tienda(models.Model):
+    producto = models.CharField(max_length=20)
+    descripcion= models.CharField(max_length=80)

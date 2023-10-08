@@ -1,0 +1,39 @@
+{% extends "inicio/compartidos/base.html" %}
+
+{% block title-head %}  
+        <title>Todos los productos</title>
+{% endblock title-head %}
+
+{% block h1_header %} 
+Cursos encontrados
+{% endblock h1_header  %}
+
+
+{% block main %} 
+
+
+<form action="" >
+    {% csrf_token %}
+{% comment "" %}
+<p> producto: <input type="text" name="producto"/> </p>
+<p> descripcion: <input type="text"name="descripcion"/> </p>
+{% endcomment %}
+{{formulario}}
+
+<input type="submit" value="Buscar"/>
+</form>
+
+<ul>
+{% for  producto in listado %}
+    <li>{{producto}}  </li>
+{% endfor %}
+
+
+
+</ul>
+
+
+
+{% endblock main  %}
+
+ 

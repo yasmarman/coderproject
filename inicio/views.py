@@ -3,7 +3,8 @@ from django.template import Template, Context, loader
 from django.http import HttpResponse 
 from datetime import datetime
 from inicio.models import Tienda
-from inicio.forms import TiendaFormulario
+from inicio.forms import TiendaFormulario, TiendaBusquedaFormulario
+
 
 def inicio(request):
 
@@ -46,3 +47,17 @@ def subir_producto(request):
             return render(request, r'inicio\crear-producto.html', {'formulario': formulario})
     formulario = TiendaFormulario()
     return render(request, r'inicio\crear-producto.html', {'formulario': formulario})
+
+
+
+def listado_producto(request):
+
+    formulario = TiendaBusquedaFormulario(request.GET)
+    if formulario.is_valid():
+        producto_buscado = formulario.cleaned_data.get('producto')
+        listado = Tienda.objects.filter(producto__icontains = producto_buscado)
+    else:
+        listado = Tienda.objects.all()
+    
+    formulario = TiendaBusquedaFormulario()
+    return render(request, r'inicio\productos.html', {'formulario': formulario, 'listado':listado})

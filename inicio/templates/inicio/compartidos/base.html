@@ -6,7 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+
+        {% block title-head %}  
         <title>Yasmin Arman Tienda </title>
+        {% endblock title-head %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -41,7 +44,10 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Bienvenidos a mi página</h1>
+                        <h1 class="text-white font-weight-bold">
+                            {% block h1_header %}  
+                            {% endblock h1_header  %}
+                        </h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -51,6 +57,13 @@
                 </div>
             </div>
         </header>
+
+        <main>
+         {% block main %}  
+         {% endblock main%}
+        </main>
+
+
         <!-- About-->
         <section class="page-section bg-primary" id="about">
             <div class="container px-4 px-lg-5">

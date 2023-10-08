@@ -3,6 +3,7 @@ from django.template import Template, Context, loader
 from django.http import HttpResponse 
 from datetime import datetime
 from inicio.models import Tienda
+from inicio.forms import TiendaFormulario
 
 def inicio(request):
 
@@ -23,7 +24,25 @@ def inicio(request):
     #return HttpResponse(template_renderizado)
 
 
-def cargar_producto(request, producto, descripcion):
-    tienda = Tienda(producto=producto, descripcion=descripcion)
-    tienda.save()
+#def cargar_producto(request, producto, descripcion):
+   # tienda = Tienda(producto=producto, descripcion=descripcion)
+   # tienda.save()
+    #return render(request, r'inicio\producto-nuevo.html', {})
+
+
+def cargar_producto(request):
+   
     return render(request, r'inicio\producto-nuevo.html', {})
+
+def subir_producto(request):
+    
+    if request.method == 'POST':
+        formulario = TiendaFormulario(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            tienda = Tienda(producto = data.get('producto'), descripcion = data['descripcion'])
+            tienda.save()
+        else:
+            return render(request, r'inicio\crear-producto.html', {'formulario': formulario})
+    formulario = TiendaFormulario()
+    return render(request, r'inicio\crear-producto.html', {'formulario': formulario})

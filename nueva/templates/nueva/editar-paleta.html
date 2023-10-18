@@ -1,0 +1,26 @@
+{% extends "inicio/compartidos/base.html" %}
+
+{% block title-head %}  
+        <title>editar paleta</title>
+{% endblock title-head %}
+
+{% block h1_header %} 
+editar paleta
+
+
+ {% endblock h1_header  %}
+
+
+ {% block main %} 
+
+
+<form action={% url "editar_paletas" paleta.id %} method="POST">
+    {% csrf_token %}
+<table>
+{{form}}
+</table>
+<input type="submit" value="editar"/>
+</form>
+  {% endblock main  %}
+
+ 

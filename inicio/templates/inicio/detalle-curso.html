@@ -1,0 +1,20 @@
+{% extends "inicio/compartidos/base.html" %}
+
+{% block title-head %}  
+        <title>detalle curso</title>
+{% endblock title-head %}
+
+{% block h1_header %} 
+detalles del curso con id {{producto.id}}
+ {% endblock h1_header  %}
+
+ {% block main %}
+ <ul>
+    <li>titulo: {{producto.producto}}</li>
+    <li>descripcion: {{producto.descripcion}}</li>
+
+
+ </ul>
+ 
+ 
+ {% endblock main %}

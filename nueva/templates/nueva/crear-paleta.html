@@ -1,0 +1,27 @@
+{% extends "inicio/compartidos/base.html" %}
+
+{% block title-head %}  
+        <title>crear paleta</title>
+{% endblock title-head %}
+
+{% block h1_header %} 
+ingrese paleta
+
+
+ {% endblock h1_header  %}
+
+
+ {% block main %} 
+
+
+<form action={% url "crear_paletas" %} method="POST">
+    {% csrf_token %}
+
+<table>
+{{form}}
+</table>
+<input type="submit" value="crear"/>
+</form>
+  {% endblock main  %}
+
+ 

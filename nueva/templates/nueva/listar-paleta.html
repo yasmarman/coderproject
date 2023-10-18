@@ -1,37 +1,41 @@
 {% extends "inicio/compartidos/base.html" %}
 
 {% block title-head %}  
-        <title>Todos los productos</title>
+        <title>Paletas</title>
 {% endblock title-head %}
 
 {% block h1_header %} 
-Cursos encontrados
+paletas
 {% endblock h1_header  %}
 
 
 {% block main %} 
-
+{% comment "" %}
 <form action="" >
     {% csrf_token %}
-{% comment "" %}
+
 <p> producto: <input type="text" name="producto"/> </p>
 <p> descripcion: <input type="text"name="descripcion"/> </p>
-{% endcomment %}
+
 {{formulario}}
 
 <input type="submit" value="Buscar"/>
-</form>
-{%if listado %} 
+</form>{% endcomment %}
+
+{%if listado_paletas %} 
 <ul>
-    {% for  producto in listado %}
+    {% for paleta in listado_paletas %}
+    
       <li>
         
-       <a href={% url "detalle-curso" producto.id %}>{{producto}}</a>  || <a href={% url 'editar-curso' producto.id %}>Editar</a>|| <a href={% url 'eliminar-curso' producto.id %}>Eliminar</a>
+       <a href={% url "detalle_paletas" paleta.id %}>{{paleta}}</a> 
+       || <a href={% url 'editar_paletas' paleta.id %}>Editar paleta</a>
+       || <a href={% url 'eliminar_paletas' paleta.id %}>Eliminar paleta</a>
         
       </li>
     {% endfor %}
 {% else %}
-<p>no se encontraron cursos</p>
+<p>no se encontraron paletas</p>
 {%endif%}
 </ul>
 

@@ -5,4 +5,4 @@ class TiendaFormulario(forms.Form):
     descripcion= forms.CharField(max_length=80)
 
 class TiendaBusquedaFormulario(forms.Form):
-    producto = forms.CharField(max_length=20)
+    producto = forms.CharField(max_length=20, required=False)

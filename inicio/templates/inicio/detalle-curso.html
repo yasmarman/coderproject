@@ -11,7 +11,7 @@ detalles del curso con id {{producto.id}}
  {% block main %}
  <ul>
     <li>titulo: {{producto.producto}}</li>
-    <li>descripcion: {{producto.descripcion}}</li>
+    <li>descripcion: {{producto.descripcion | safe}}</li>
 
 
  </ul>

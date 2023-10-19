@@ -10,17 +10,12 @@ paletas
 
 
 {% block main %} 
-{% comment "" %}
+
 <form action="" >
     {% csrf_token %}
-
-<p> producto: <input type="text" name="producto"/> </p>
-<p> descripcion: <input type="text"name="descripcion"/> </p>
-
-{{formulario}}
-
-<input type="submit" value="Buscar"/>
-</form>{% endcomment %}
+    <input type="text" name="marca" Placeholder ="Imgrese Marca"/>
+    <input type="submit" value="Buscar"/>
+</form>
 
 {%if listado_paletas %} 
 <ul>

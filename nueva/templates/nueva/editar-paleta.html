@@ -17,7 +17,8 @@ editar paleta
 <form action={% url "editar_paletas" paleta.id %} method="POST">
     {% csrf_token %}
 <table>
-{{form}}
+  {{form}}
+  {{form.media}}
 </table>
 <input type="submit" value="editar"/>
 </form>

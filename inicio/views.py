@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from datetime import datetime
 from inicio.models import Tienda
 from inicio.forms import TiendaFormulario, TiendaBusquedaFormulario
+from django.contrib.auth.decorators import login_required
 
 
 def inicio(request):
@@ -63,7 +64,7 @@ def listado_producto(request):
     formulario = TiendaBusquedaFormulario()
     return render(request, r'inicio\productos.html', {'formulario': formulario, 'listado':listado})
 
-
+@login_required
 def editar_curso(request, id_curso):
     curso_a_editar = Tienda.objects.get(id=id_curso)
     if request.method == 'POST':
@@ -80,7 +81,7 @@ def editar_curso(request, id_curso):
     return render(request, r'inicio\editar-curso.html', {'formulario' : formulario})
 
 
-
+@login_required
 def eliminar_curso(request, id_curso):
 
     curso_a_eliminar = Tienda.objects.get(id=id_curso)

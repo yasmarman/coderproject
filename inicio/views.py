@@ -42,7 +42,7 @@ def subir_producto(request):
         formulario = TiendaFormulario(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
-            tienda = Tienda(producto = data.get('producto'), descripcion = data['descripcion'])
+            tienda = Tienda(producto = data.get('producto'), descripcion = data['descripcion'],imagen = data.get('imagen'))
             tienda.save()
             return redirect('listado')
         else:
@@ -73,12 +73,15 @@ def editar_curso(request, id_curso):
             data = formulario.cleaned_data
             curso_a_editar.producto = data['producto']
             curso_a_editar.save()
+            
             return redirect('listado')
         else:
             return render(request , 'editar-curso.html', {'formulario':formulario})
 
     formulario = TiendaFormulario(initial={'producto':curso_a_editar.producto})
     return render(request, r'inicio\editar-curso.html', {'formulario' : formulario})
+
+
 
 
 @login_required

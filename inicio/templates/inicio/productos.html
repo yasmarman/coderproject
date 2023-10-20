@@ -1,4 +1,5 @@
 {% extends "inicio/compartidos/base.html" %}
+{% load static %}
 
 {% block title-head %}  
         <title>Todos los productos</title>
@@ -21,22 +22,56 @@ Cursos encontrados
 
 <input type="submit" value="Buscar"/>
 </form>
+
+
+
+<section class="container-listados">
 {%if listado %} 
-<ul>
-    {% for  producto in listado %}
-      <li>
+{% for  producto in listado %}
+
+<div class="card h-100">
+      <img src={{request.tienda.imagen.url}} alt="" height="auto">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href={% url "detalle-curso" producto.id %}>{{producto}}</a> 
+          </h5>
         
-       <a href={% url "detalle-curso" producto.id %}>{{producto}}</a>  || <a href={% url 'editar-curso' producto.id %}>Editar</a>|| <a href={% url 'eliminar-curso' producto.id %}>Eliminar</a>
-        
-      </li>
-    {% endfor %}
+          <p class="card-text" {% url "detalle-curso" producto.id %}>
+            {{producto.descripcion | safe}} 
+          </p>
+      </div>
+      <div class="card-footer">
+          <small class="text-muted"><a href={% url 'editar-curso' producto.id %}>Editar</a>|| <a href={% url 'eliminar-curso' producto.id %}>Eliminar</a></small>
+      </div>
+    </div>   
+ 
+{% endfor %}
 {% else %}
 <p>no se encontraron cursos</p>
 {%endif%}
-</ul>
-
+</section>
 
 
 {% endblock main  %}
 
- 
+ {% block aboutme %}
+ {% endblock aboutme %}
+
+
+ <div class="mb-5 col-md-6 col-lg-4">
+  <div class="card h-100">
+      <img src={% static "assets/img/blog.3.webp" %} class="card-img-top" alt="...">
+      <div class="card-body">
+          <h5 class="card-title">
+            <a href={% url "detalle-curso" producto.id %}>{{producto}}</a>
+
+          </h5>
+          <p class="card-text">Michael Kendrick Architects has designed a unique house that’s hidden away from
+              view and blends seamlessly into the surrounding protected woodland.
+          </p>
+      </div>
+      <div class="card-footer">
+        <a href={% url 'editar-curso' producto.id %}>Editar</a>|| <a href={% url 'eliminar-curso' producto.id %}>Eliminar</a>
+      </div>
+  </div>
+</div>

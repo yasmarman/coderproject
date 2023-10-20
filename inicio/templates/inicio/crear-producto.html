@@ -11,15 +11,20 @@ Ingresa un nuevo curso
 
 {% block text_header %} {% endblock text_header %}
 {% block main %} 
-
+<div class="container px-4 px-lg-5">
+  
+      
 <form action="" method="POST">
     {% csrf_token %}
-<table>
-{{formulario}}
-{{formulario.media}}
-</table>
-<input type="submit" value="crear"/>
+      <table>
+      {{formulario}}
+      {{formulario.media}}
+      
+      </table>
+    <input type="submit" class="botonform"  value="crear"/>
 </form>
-  {% endblock main  %}
 
- 
+</div>
+{% endblock main  %}
+
+  {% block aboutme %} {% endblock aboutme %}

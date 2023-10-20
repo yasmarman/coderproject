@@ -14,10 +14,11 @@ Editar
  {% block main %} 
 
 
-<form action="" method="POST">
+<form action="" method="POST" enctype ="multipart/form-data">
     {% csrf_token %}
 <table>
 {{formulario}}
+{{formulario.media}}
 </table>
 <input type="submit" value="editar"/>
 </form>

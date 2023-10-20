@@ -7,14 +7,17 @@ from django.views.generic.list import ListView
 from nueva.models import Paleta
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django import forms
 
 class PaletaCreateView(CreateView):
     model = Paleta
     template_name = "nueva/crear-paleta.html"
-    fields = ['marca', 'modelo', 'descripcion', 'fecha']
+    imagen = forms.ImageField(required=False)
     success_url =  reverse_lazy('paletas')
+    fields = ['marca', 'modelo', 'descripcion', 'fecha', 'imagen']
 
+
+    
 class PaletaDeleteView(LoginRequiredMixin, DeleteView ):
         model = Paleta
         template_name = "nueva/eliminar-paleta.html"
@@ -28,7 +31,7 @@ class PaletaDetailView(DetailView):
 class PaletaUpdateView(LoginRequiredMixin,UpdateView):
     model = Paleta
     template_name = "nueva/editar-paleta.html"
-    fields = ['marca', 'modelo', 'descripcion', 'fecha']
+    fields = ['marca', 'modelo', 'descripcion', 'fecha', 'imagen']
     success_url =  reverse_lazy('paletas')
 
     

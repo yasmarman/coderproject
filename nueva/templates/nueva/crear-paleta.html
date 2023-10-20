@@ -14,7 +14,7 @@ ingrese paleta
  {% block main %} 
 
 
-<form action={% url "crear_paletas" %} method="POST">
+<form action={% url "crear_paletas" %} method="POST" enctype ="multipart/form-data">
     {% csrf_token %}
 
 <table>

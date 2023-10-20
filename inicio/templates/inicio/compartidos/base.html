@@ -21,6 +21,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static "CSS/styles.css" %} rel="stylesheet" />
+        <link href={% static "CSS/styles-nuevos.css" %} rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -30,19 +31,19 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/crear-producto/subir">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/productos">Tienda</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url "paletas" %}>Paletas</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url "crear_paletas" %}>Crear Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/productos">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url "paletas" %}>Novedades</a></li>
 
                         {% if request.user.is_authenticated %}
                         {% if request.user.infoextra.avatar %}
                             <img src={{request.user.infoextra.avatar.url}} alt="" height="40px">
                         {% endif %}
                         <li class="nav-item"><a class="btn btn-warning"href={% url "editar_perfil" %}>{{request.user.username}}</a></li>
-                        <li class="nav-item"><a class="btn btn-secondary"href={% url "logout" %}>cerrar sesion</a></li>
+                        <li class="nav-item"><a class="btn btn-secondary"href={% url "logout" %}>Cerrar Sesion</a></li>
                         {% else %}
                         <li class="nav-item"><a class="btn btn-primary"href={% url "login" %}>Iniciar Sesion</a></li>
-                        <li class="nav-item"><a class="btn btn-warning"href={% url "registro" %}>registrarse</a></li>
+                        <li class="nav-item"><a class="btn btn-warning"href={% url "registro" %}>Registrarse</a></li>
                         {% endif %}
                     </ul>
                 </div>

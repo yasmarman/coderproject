@@ -14,9 +14,13 @@ detalles de la paleta con id {{paleta.id}}
     <li>modelo: {{paleta.modelo}}</li>
     <li>descripcion: {{paleta.descripcion | safe}}</li>
     <li>fecha: {{paleta.fecha}}</li>
-
-
+    {% if paleta.imagen %}
+    <img src={{paleta.imagen.url}} alt="" width="550px" height="auto" >
+    {% endif %}
+   
+    
  </ul>
  
  
  {% endblock main %}
+ {% block aboutme %}{% endblock aboutme %}

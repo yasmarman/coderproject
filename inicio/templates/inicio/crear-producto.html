@@ -1,25 +1,19 @@
 {% extends "inicio/compartidos/base.html" %}
 
 {% block title-head %}  
-        <title>crear producto</title>
+        <title>Crear Curso</title>
 {% endblock title-head %}
 
 {% block h1_header %} 
-ingrese el producto nuevo
+Ingresa un nuevo curso
+{% endblock h1_header  %}
 
 
- {% endblock h1_header  %}
-
-
- {% block main %} 
-
+{% block text_header %} {% endblock text_header %}
+{% block main %} 
 
 <form action="" method="POST">
     {% csrf_token %}
-{% comment "" %}
-<p> producto: <input type="text" name="producto"/> </p>
-<p> descripcion: <input type="text"name="descripcion"/> </p>
-{% endcomment %}
 <table>
 {{formulario}}
 {{formulario.media}}

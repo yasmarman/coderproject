@@ -14,7 +14,7 @@ class PaletaCreateView(CreateView):
     template_name = "nueva/crear-paleta.html"
     imagen = forms.ImageField(required=False)
     success_url =  reverse_lazy('paletas')
-    fields = ['marca', 'modelo', 'descripcion', 'fecha', 'imagen']
+    fields = ['titulo', 'detalle', 'descripcion', 'fecha', 'imagen']
 
 
     
@@ -31,7 +31,7 @@ class PaletaDetailView(DetailView):
 class PaletaUpdateView(LoginRequiredMixin,UpdateView):
     model = Paleta
     template_name = "nueva/editar-paleta.html"
-    fields = ['marca', 'modelo', 'descripcion', 'fecha', 'imagen']
+    fields = ['titulo', 'detalle', 'descripcion', 'fecha', 'imagen']
     success_url =  reverse_lazy('paletas')
 
     

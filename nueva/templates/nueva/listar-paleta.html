@@ -1,19 +1,23 @@
 {% extends "inicio/compartidos/base.html" %}
 
 {% block title-head %}  
-        <title>Paletas</title>
+        <title>Explora tu Potencial Digital</title>
 {% endblock title-head %}
 
 {% block h1_header %} 
-paletas
+Explora tu Potencial Digital
 {% endblock h1_header  %}
-
+{% block parrafobase %}
+<p class="text-white-75 mb-5">   Descubre un mundo de aprendizaje en línea </p>
+{% endblock parrafobase %}
+                       
+{% block botonprincipal %}{% endblock botonprincipal%}
 
 {% block main %} 
 <section id="cursos">  
 <form action="" >
     {% csrf_token %}
-    <input type="text" name="marca" Placeholder ="Ingrese Marca"/>
+    <input type="text" name="marca" Placeholder ="Busca tu próximo curso "/>
     <input type="submit" value="Buscar"/>
 </form>
 <section class="container-listados">
@@ -34,14 +38,14 @@ paletas
     </div>
     <div class="card-footer">
       <small class="text-muted">
-      <a href={% url 'editar_paletas' paleta.id %}>Editar paleta</a>
+      <a href={% url 'editar_paletas' paleta.id %}>Editar paleta</a>||
        <a href={% url 'eliminar_paletas' paleta.id %}>Eliminar paleta</a>
       </small> 
     </div>
   </div> 
     {% endfor %}
 {% else %}
-<p>no se encontraron paletas</p>
+<p>no se encontraron cursos</p>
 {%endif%}
 </section>
 

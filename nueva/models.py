@@ -2,12 +2,12 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 class Paleta (models.Model):
-    marca = models.CharField(max_length=50)
-    modelo = models.CharField(max_length=50)
+    titulo = models.CharField(max_length=50)
+    detalle = models.CharField(max_length=50)
     descripcion = RichTextField()
     fecha = models.DateField()
     imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
 
     def  __str__(self):
-        return f'{self.marca} {self.modelo}'
+        return f'{self.titulo} {self.detalle}'
     

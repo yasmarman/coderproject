@@ -28,3 +28,21 @@
         width: 31%;
         margin: 0.4rem;
     }
+
+    .detalles {
+        width: 100%;
+    }
+
+    .imagencurso  img {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    .descripcioncurso {
+        padding-top: 2rem;
+    }
+
+    li {
+        list-style: none;
+    }

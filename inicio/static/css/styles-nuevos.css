@@ -1,7 +1,4 @@
-#cursos{
 
-    margin-top: 4rem;
-    }
     
     
     a {
@@ -9,11 +6,9 @@
         text-decoration: none;
     }
     
-    main {
-      padding: 2rem ;
-      margin: 0 auto;
+    section#cursos {
+        padding: 4rem 2rem;
     }
-    
     
     .botonform {
       border-radius: 2rem;

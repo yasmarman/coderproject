@@ -9,18 +9,19 @@ detalles de la paleta con id {{paleta.id}}
  {% endblock h1_header  %}
 
  {% block main %}
- <ul>
+ <section id="cursos">  
+        
+        {% if paleta.imagen %}
+        <img src={{paleta.imagen.url}} alt="" width="550px" height="auto" >
+        {% endif %}
     <li>marca: {{paleta.marca}}</li>
     <li>modelo: {{paleta.modelo}}</li>
     <li>descripcion: {{paleta.descripcion | safe}}</li>
     <li>fecha: {{paleta.fecha}}</li>
-    {% if paleta.imagen %}
-    <img src={{paleta.imagen.url}} alt="" width="550px" height="auto" >
-    {% endif %}
+
    
-    
- </ul>
+
  
- 
+</section>  
  {% endblock main %}
  {% block aboutme %}{% endblock aboutme %}

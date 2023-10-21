@@ -34,6 +34,7 @@
                         <li class="nav-item"><a class="nav-link" href={% url "crear_paletas" %}>Crear Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/productos">Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "paletas" %}>Novedades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
 
                         {% if request.user.is_authenticated %}
                         {% if request.user.infoextra.avatar %}
@@ -67,7 +68,7 @@
                         <p class="text-white-75 mb-5"> 
                             {% block parrafobase %}Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached! {% endblock parrafobase %}</p>
                        
-                        <a class="btn btn-primary btn-xl" href="#about">{% block botonprincipal %}Find Out More{% endblock botonprincipal %}</a>
+                        <a class="btn btn-primary btn-xl" href={% url "paletas" %}>{% block botonprincipal %}Find Out More{% endblock botonprincipal %}</a>
                         {% endblock text_header %}
                     </div>
                     
@@ -96,39 +97,7 @@
             </div>
         </section>  
         {% endblock aboutme %}
-    <section id="cursos">    
-        
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="text-grey mt-0">Eleva el potencial de tus equipos al siguiente nivel de una forma fácil y sencilla.</h2>
-                    <hr class="divider" />
-                    <a class="btn btn-primary btn-xl" href="#about">Ver todos</a>
-                </div>
-            </div>
-        </div>
-    
-        <div class="m-4  row row-cols-1 row-cols-md-3 g-4 ">
-            
-            <div class="mb-5 col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <img src={% static "assets/img/blog.3.webp" %} class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a class="link-blog" href="./blog1.html">This Wood Covered House Hovers Above The Hillside In
-                                The Forest</a>
-                        </h5>
-                        <p class="card-text">Michael Kendrick Architects has designed a unique house that’s hidden away from
-                            view and blends seamlessly into the surrounding protected woodland.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">February 2 2023</small>
-                    </div>
-                </div>
-            </div>
-                          
-    </section>  
+
             
         </div>
 

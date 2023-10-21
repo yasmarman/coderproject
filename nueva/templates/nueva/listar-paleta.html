@@ -10,32 +10,44 @@ paletas
 
 
 {% block main %} 
-
+<section id="cursos">  
 <form action="" >
     {% csrf_token %}
-    <input type="text" name="marca" Placeholder ="Imgrese Marca"/>
+    <input type="text" name="marca" Placeholder ="Ingrese Marca"/>
     <input type="submit" value="Buscar"/>
 </form>
-
+<section class="container-listados">
 {%if listado_paletas %} 
-<ul>
+
     {% for paleta in listado_paletas %}
-    
-      <li>
-        
+    <div class="card h-100">
+      {% if paleta.imagen %}
+    <img src={{paleta.imagen.url}} alt="" width="auto"  >
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">
        <a href={% url "detalle_paletas" paleta.id %}>{{paleta}}</a> 
-       || <a href={% url 'editar_paletas' paleta.id %}>Editar paleta</a>
-       || <a href={% url 'eliminar_paletas' paleta.id %}>Eliminar paleta</a>
-        
-      </li>
+      </h5>
+      <p class="card-text" {% url "detalle_paletas" paleta.id %}>
+        {{paleta.descripcion | safe}} 
+      </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
+      <a href={% url 'editar_paletas' paleta.id %}>Editar paleta</a>
+       <a href={% url 'eliminar_paletas' paleta.id %}>Eliminar paleta</a>
+      </small> 
+    </div>
+  </div> 
     {% endfor %}
 {% else %}
 <p>no se encontraron paletas</p>
 {%endif%}
-</ul>
+</section>
 
+</section>
 
+{% endblock main %}
 
-{% endblock main  %}
-
- 
+ {% block aboutme %}{% endblock aboutme %}
+ {% block details %}{% endblock details %}

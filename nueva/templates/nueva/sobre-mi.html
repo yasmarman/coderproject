@@ -1,0 +1,31 @@
+{% extends "inicio/compartidos/base.html" %}
+{% load static %}
+
+
+{% block h1_header %} 
+Sobre Mí
+{% endblock h1_header  %}
+
+
+
+ {% block parrafobase %} <p class="text-white-75 mb-5"> 
+    Yasmin Arman: Diseñadora Gráfica y Web con enfoque en Experiencia de Usuario (UX/UI).<p>
+ {% endblock parrafobase %}
+
+<a class="btn btn-primary btn-xl" href={% url "paletas" %}>{% block botonprincipal %}Ver todos los cursos{% endblock botonprincipal %}</a>
+                       
+<!-- About-->
+{% block aboutme %}
+<section class="page-section bg-primary" id="about">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-white mt-0">{% block aboutme_h2 %}Mi primera pagina en python{% endblock aboutme_h2 %}</h2>
+                <hr class="divider divider-light" />
+                <p class="text-white-75 mb-4">{% block aboutme_p %}{% endblock aboutme_p %}</p>
+                
+            </div>
+        </div>
+    </div>
+</section>  
+{% endblock aboutme %}

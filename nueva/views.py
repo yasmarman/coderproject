@@ -47,3 +47,8 @@ class PaletaListView(ListView):
          else:     
               paletas = self.model.objects.all()
          return paletas        
+
+
+
+def About(request):
+    return render(request, 'nueva/sobre-mi.html')     

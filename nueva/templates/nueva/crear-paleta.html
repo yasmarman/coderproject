@@ -13,11 +13,11 @@ Ingresa un nuevo curso
  <p class="text-white-75 mb-5">  Convierte tu experiencia en cursos en línea y empodera a otros. </p>
  {% endblock parrafobase %}
                         
- {% block botonprincipal %}{% endblock botonprincipal%}
+ <a class="btn btn-primary btn-xl" href={% url "paletas" %}>{% block botonprincipal %}Más Cursos{% endblock botonprincipal %}
  
  {% block main %} 
 
-
+<div class="formcrear">
 <form action={% url "crear_paletas" %} method="POST" enctype ="multipart/form-data">
     {% csrf_token %}
 
@@ -27,6 +27,9 @@ Ingresa un nuevo curso
 </table>
 <input type="submit" value="crear"/>
 </form>
+
+</div>
   {% endblock main  %}
 
- 
+  {% block aboutme %}{% endblock aboutme %}
+ {% block details %}{% endblock details %}

@@ -1,6 +1,6 @@
 from django.urls import path
 from nueva import views
-
+from nueva.views import About
 
 urlpatterns = [
     path('paletas/',views.PaletaListView.as_view() , name='paletas'),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('paletas/<int:pk>',views.PaletaDetailView.as_view() , name='detalle_paletas'),
     path('paletas/<int:pk>/editar/',views.PaletaUpdateView.as_view() , name='editar_paletas'),
     path('paletas/<int:pk>/eliminar/', views.PaletaDeleteView.as_view(), name='eliminar_paletas'),
+    path('sobre-mi/', About, name='sobre_mi'),
 ]

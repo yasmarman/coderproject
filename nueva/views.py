@@ -34,6 +34,7 @@ class PaletaUpdateView(LoginRequiredMixin,UpdateView):
     fields = ['titulo', 'detalle', 'descripcion', 'fecha', 'imagen']
     success_url =  reverse_lazy('paletas')
 
+
     
 class PaletaListView(ListView):
     model = Paleta

@@ -34,7 +34,10 @@ class PaletaUpdateView(LoginRequiredMixin,UpdateView):
     fields = ['titulo', 'detalle', 'descripcion', 'fecha', 'imagen']
     success_url =  reverse_lazy('paletas')
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ccc206352c6d045e872a02ce074e7f5329c49b9e
     
 class PaletaListView(ListView):
     model = Paleta
@@ -42,16 +45,25 @@ class PaletaListView(ListView):
     template_name = "nueva/listar-paleta.html"
 
     def get_queryset(self):
+<<<<<<< HEAD
          titulo = self.request.GET.get('titulo', '')
          if titulo:
               paletas = self.model.objects.filter(titulo__icontains=titulo)
+=======
+         marca = self.request.GET.get('marca', '')
+         if marca:
+              paletas = self.model.objects.filter(marca__icontains=marca)
+>>>>>>> ccc206352c6d045e872a02ce074e7f5329c49b9e
          else:     
               paletas = self.model.objects.all()
          return paletas        
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ccc206352c6d045e872a02ce074e7f5329c49b9e
 def About(request):
     return render(request, 'nueva/sobre-mi.html')     

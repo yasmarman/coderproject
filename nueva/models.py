@@ -7,7 +7,10 @@ class Paleta (models.Model):
     descripcion = RichTextField()
     fecha = models.DateField()
     imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
+<<<<<<< HEAD
     
+=======
+>>>>>>> ccc206352c6d045e872a02ce074e7f5329c49b9e
 
     def  __str__(self):
         return f'{self.titulo} {self.detalle}'

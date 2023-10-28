@@ -18,7 +18,7 @@
     <li>Email actual: <b>{{request.user.email}}</b></li>
     <li>Nombre: <b>{{request.user.first_name}}</b></li>
     <li>Apellido: <b>{{request.user.last_name}}</b></li>
-    <li> {{request.user.link}}</li>
+    <li> {{request.user.infoextra.link}}</li>
     <li>&nbsp;</li>
     <li><a  href={% url "editar_perfil" %}>Editar</a></li>
   </div>     

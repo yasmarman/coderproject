@@ -41,9 +41,9 @@ class PaletaListView(ListView):
     template_name = "nueva/listar-paleta.html"
 
     def get_queryset(self):
-         marca = self.request.GET.get('marca', '')
-         if marca:
-              paletas = self.model.objects.filter(marca__icontains=marca)
+         titulo = self.request.GET.get('titulo', '')
+         if titulo:
+              paletas = self.model.objects.filter(titulo__icontains=titulo)
          else:     
               paletas = self.model.objects.all()
          return paletas        

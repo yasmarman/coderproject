@@ -1,0 +1,28 @@
+{% extends "inicio/compartidos/base.html" %}
+
+{% block title-head %} <title>Mi Perfil</title>{% endblock title-head %}
+{% block h1_header %} Mi Perfil {% endblock h1_header  %}
+
+{% block parrafobase %}{% endblock parrafobase %}
+{% block botonprincipal %} {% endblock botonprincipal %}
+
+
+{% block main %}
+ <section id="miperfil">  
+    <div class="miavatar">
+ {% if request.user.infoextra.avatar %}
+        <img src={{request.user.infoextra.avatar.url}} alt="" height="240px" >
+        {% endif %}
+    </div>
+    <div class="miperfildescripcion">
+    <li>Email actual: <b>{{request.user.email}}</b></li>
+    <li>Nombre: <b>{{request.user.first_name}}</b></li>
+    <li>Apellido: <b>{{request.user.last_name}}</b></li>
+    <li> {{request.user.link}}</li>
+    <li>&nbsp;</li>
+    <li><a  href={% url "editar_perfil" %}>Editar</a></li>
+  </div>     
+
+ 
+</section>  
+ {% endblock main %}

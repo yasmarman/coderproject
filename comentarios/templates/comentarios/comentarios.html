@@ -1,0 +1,29 @@
+{% extends "inicio/compartidos/base.html" %}
+
+
+
+{% block title-head %} <title>Comentarios</title>{% endblock title-head %}
+{% block h1_header %} Deja tu Comentario {% endblock h1_header  %}
+
+{% block parrafobase %}{% endblock parrafobase %}
+{% block botonprincipal %} Volver a Cursos {% endblock botonprincipal %}
+
+
+{% block main %}
+<section class="comentarios">
+{% for comentario in comentarios %}
+<li>{{ comentario.autor }} dijo: {{ comentario.contenido }}</li>
+{% endfor %}
+</section>
+
+<section class="comentarios-formulario">
+<h2>Deja tu comentario</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar comentario</button>
+    </form>
+</setion>
+ {% endblock main %}
+
+ {% block aboutme %} {% endblock aboutme %}

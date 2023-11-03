@@ -36,6 +36,7 @@
                         <li class="nav-item"><a class="nav-link" href={% url "paletas" %}>Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "crear_paletas" %}>Crear Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url "sobre_mi" %}>Sobre Mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url "ver_comentarios" %}>Comentarios</a></li>
 
                         {% if request.user.is_authenticated %}
                         {% if request.user.infoextra.avatar %}

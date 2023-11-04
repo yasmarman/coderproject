@@ -4,4 +4,7 @@ from .models import Comentario
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['autor', 'contenido']
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'rows': 3}),
+        }

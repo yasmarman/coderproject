@@ -1,7 +1,6 @@
 {% extends "inicio/compartidos/base.html" %}
 
 
-
 {% block title-head %} <title>Comentarios</title>{% endblock title-head %}
 {% block h1_header %} Deja tu Comentario {% endblock h1_header  %}
 
@@ -10,20 +9,52 @@
 
 
 {% block main %}
-<section class="comentarios">
-{% for comentario in comentarios %}
-<li>{{ comentario.autor }} dijo: {{ comentario.contenido }}</li>
-{% endfor %}
-</section>
+<div class="mensajes">
+    <p>Usuario Logueado |  {{request.user.username}}</p>
+    <hr>
 
-<section class="comentarios-formulario">
-<h2>Deja tu comentario</h2>
+
+
+{% for comentario in comentarios %}
+<ul>
+    {% for comentario in comentarios %}
+        <li><strong>{{ comentario.autor.username }}</strong> {{ comentario.contenido }}</li>
+    {% endfor %}
+</ul>
+
+<li>
+           
+    {% if comentario.user.is_authenticated %}
+{% if comentario.user.infoextra.avatar %}
+ <img src={{comentario.user.infoextra.avatar.url}} alt="" height="40px" >
+ {% endif %}{% endif %} 
+ {{ comentario.user.username }} <br/>{{ comentario.text }}
+    <p class="date">
+        {{comentario.created_at }}
+    </p>
+  </li>
+
+    <div class="card-footer">
+        <small class="text-muted">
+             <a href={% url 'eliminar_comentario' comentario.id %}>Eliminar</a>
+        </small> 
+      </div>
+     
+{% endfor %}
+</div>
+
+<div class="mensajes_form">
+    <hr>
+    <h4>Deja tu comentario</h4><br/>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar comentario</button>
-    </form>
-</setion>
+        {{ form.text }}<br/><br/>
+        <button id="boton-enviar" type="submit">Enviar comentario</button>
+    </form>    
+</div>
+
+
+
  {% endblock main %}
 
  {% block aboutme %} {% endblock aboutme %}

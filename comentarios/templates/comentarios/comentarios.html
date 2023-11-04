@@ -51,7 +51,7 @@
     <form method="post" enctype ="multipart/form-data">
         {% csrf_token %}
         {{ form.text }}
-        {{form.media}}
+        {{form.media}}<br/><br/>
         <button id="boton-enviar" type="submit">Enviar comentario</button>
     </form>    
 </div>

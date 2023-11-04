@@ -27,3 +27,7 @@ def eliminar_comentario(request, id_comentario):
 
     return redirect('ver_comentarios')
 
+
+
+    
+

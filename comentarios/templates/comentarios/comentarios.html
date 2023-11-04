@@ -37,11 +37,13 @@
   </li>
 
     <div class="card-footer">
-        <small class="text-muted">
-             <a href={% url 'eliminar_comentario' comentario.id %}>Eliminar</a>
+        <small class="text-muted">{% if comentario.user == user %}
+             <a href={% url 'eliminar_comentario' comentario.id %}>Eliminar</a>{% endif %}
         </small> 
-      </div>
+      </div>    
      
+
+
 {% endfor %}
 </div>
 

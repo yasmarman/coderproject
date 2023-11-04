@@ -28,7 +28,9 @@
 {% if comentario.user.infoextra.avatar %}
  <img src={{comentario.user.infoextra.avatar.url}} alt="" height="40px" >
  {% endif %}{% endif %} 
- {{ comentario.user.username }} <br/>{{ comentario.text }}
+ {{ comentario.user.username }} <br/>
+ <hr class="lineas">
+ {{ comentario.text | safe}}
     <p class="date">
         {{comentario.created_at }}
     </p>
@@ -44,11 +46,12 @@
 </div>
 
 <div class="mensajes_form">
-    <hr>
-    <h4>Deja tu comentario</h4><br/>
-    <form method="post">
+    
+    <h4>Deja tu comentario</h4>
+    <form method="post" enctype ="multipart/form-data">
         {% csrf_token %}
-        {{ form.text }}<br/><br/>
+        {{ form.text }}
+        {{form.media}}
         <button id="boton-enviar" type="submit">Enviar comentario</button>
     </form>    
 </div>

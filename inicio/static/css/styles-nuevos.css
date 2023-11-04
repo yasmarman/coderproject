@@ -79,6 +79,7 @@
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
+        flex-direction: column;
     }
 
     #boton-enviar {
@@ -98,4 +99,11 @@
     font-size: 12px;
     color: grey;
     padding-top: 1rem;
+}
+
+.lineas{
+    border-top: 2px solid;
+     color: #f4623a;
+     opacity: 1;
+
 }
